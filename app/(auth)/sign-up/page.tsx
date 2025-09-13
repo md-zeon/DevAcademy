@@ -12,19 +12,20 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import ROUTES from "@/constants/route"
 import Link from "next/link"
-const LoginPage = () => {
+
+const SignUpPage = () => {
     return (
         <main className="max-w-7xl mx-auto flex items-center justify-center min-h-[calc(100vh-80px)]">
             <Card className="w-full max-w-sm">
                 <CardHeader>
-                    <CardTitle>Login to your account</CardTitle>
+                    <CardTitle>Sign Up to your account</CardTitle>
                     <CardDescription>
                         Enter your email below to login to your account
                     </CardDescription>
                     <CardAction>
                         <Button variant="link" asChild>
-                            <Link href={ROUTES.SIGN_UP}>
-                                Sign Up
+                            <Link href={ROUTES.SIGN_IN}>
+                                Sign In
                             </Link>
                         </Button>
                     </CardAction>
@@ -44,12 +45,6 @@ const LoginPage = () => {
                             <div className="grid gap-2">
                                 <div className="flex items-center">
                                     <Label htmlFor="password">Password</Label>
-                                    <a
-                                        href="#"
-                                        className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                                    >
-                                        Forgot your password?
-                                    </a>
                                 </div>
                                 <Input id="password" type="password" required />
                             </div>
@@ -58,7 +53,7 @@ const LoginPage = () => {
                 </CardContent>
                 <CardFooter className="flex-col gap-2">
                     <Button type="submit" className="w-full">
-                        Login
+                        Sign up
                     </Button>
                     <Button variant="outline" className="w-full">
                         Login with Github
@@ -69,4 +64,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage
+export default SignUpPage;

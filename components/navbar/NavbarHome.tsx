@@ -19,6 +19,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import SearchBar from "../Searchbar"
+import ROUTES from "@/constants/route"
 
 const NavbarHome = () => {
   const user = ""
@@ -30,7 +31,7 @@ const NavbarHome = () => {
           {/* Logo + Navigation */}
           <div className="flex items-center space-x-4">
             {/* Logo */}
-            <Link href="/" className="text-2xl font-bold text-primary">
+            <Link href={ROUTES.HOME} className="text-2xl font-bold text-primary">
               DevAcademy
             </Link>
             {/* Desktop Navigation */}
@@ -45,7 +46,7 @@ const NavbarHome = () => {
                   <NavigationMenuContent className="w-60 bg-background text-foreground border border-border shadow-md rounded-md p-2 flex flex-col gap-1 z-50">
                     <NavigationMenuLink asChild>
                       <Link
-                        href="/courses"
+                        href={ROUTES.COURSES}
                         className="block px-3 py-2 rounded"
                       >
                         All Courses
@@ -53,7 +54,7 @@ const NavbarHome = () => {
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>
                       <Link
-                        href="/paths"
+                        href={ROUTES.PATHS}
                         className="block px-3 py-2 rounded"
                       >
                         Career Paths
@@ -68,7 +69,7 @@ const NavbarHome = () => {
                   <NavigationMenuItem>
                     <NavigationMenuLink asChild>
                       <Link
-                        href="/dashboard"
+                        href={ROUTES.DASHBOARD}
                         className="text-foreground hover:text-primary"
                       >
                         Dashboard
@@ -80,7 +81,7 @@ const NavbarHome = () => {
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
                     <Link
-                      href="/about"
+                      href={ROUTES.ABOUT}
                       className="text-foreground hover:text-primary"
                     >
                       About
@@ -92,7 +93,7 @@ const NavbarHome = () => {
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
                     <Link
-                      href="/contact"
+                      href={ROUTES.CONTACT}
                       className="text-foreground hover:text-primary"
                     >
                       Contact
@@ -147,14 +148,14 @@ const NavbarHome = () => {
               <>
                 <Button asChild variant="ghost" size="lg">
                   <Link
-                    href="/login"
+                    href={ROUTES.SIGN_IN}
                   >
                     Login
                   </Link>
                 </Button>
                 <Button asChild size="lg">
                   <Link
-                    href="/auth/register"
+                    href={ROUTES.SIGN_UP}
                     className="px-4 py-2 bg-primary text-primary-foreground rounded hover:brightness-90"
                   >
                     Signup
@@ -186,33 +187,33 @@ const NavbarHome = () => {
                   {/* Mobile Links */}
                   <nav className="flex flex-col space-y-2">
                     <Link
-                      href="/courses"
+                      href={ROUTES.COURSES}
                       className="px-3 py-2 rounded hover:bg-muted"
                     >
                       All Courses
                     </Link>
                     <Link
-                      href="/paths"
+                      href={ROUTES.PATHS}
                       className="px-3 py-2 rounded hover:bg-muted"
                     >
                       Career Paths
                     </Link>
                     {user && (
                       <Link
-                        href="/dashboard"
+                        href={ROUTES.DASHBOARD}
                         className="px-3 py-2 rounded hover:bg-muted"
                       >
                         Dashboard
                       </Link>
                     )}
                     <Link
-                      href="/about"
+                      href={ROUTES.ABOUT}
                       className="px-3 py-2 rounded hover:bg-muted"
                     >
                       About
                     </Link>
                     <Link
-                      href="/contact"
+                      href={ROUTES.CONTACT}
                       className="px-3 py-2 rounded hover:bg-muted"
                     >
                       Contact
@@ -221,7 +222,7 @@ const NavbarHome = () => {
                       <>
                         <Button asChild>
                           <Link
-                            href="/auth/login"
+                            href={ROUTES.SIGN_IN}
                             className="px-3 py-2 rounded hover:bg-muted"
                           >
                             Login
@@ -229,7 +230,7 @@ const NavbarHome = () => {
                         </Button>
                         <Button asChild>
                           <Link
-                            href="/auth/register"
+                            href={ROUTES.SIGN_UP}
                             className="px-3 py-2 bg-primary text-primary-foreground rounded hover:brightness-90"
                           >
                             Sign up
