@@ -147,7 +147,7 @@ const NavbarHome = () => {
               <>
                 <Button asChild variant="ghost" size="lg">
                   <Link
-                    href="/auth/login"
+                    href="/login"
                   >
                     Login
                   </Link>
