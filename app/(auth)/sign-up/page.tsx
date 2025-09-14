@@ -1,3 +1,4 @@
+import SocialAuthForm from "@/components/forms/SocialAuthForm"
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -55,9 +56,7 @@ const SignUpPage = () => {
                     <Button type="submit" className="w-full">
                         Sign up
                     </Button>
-                    <Button variant="outline" className="w-full">
-                        Login with Github
-                    </Button>
+                    <SocialAuthForm type="SIGN_UP" />
                 </CardFooter>
             </Card>
         </main>

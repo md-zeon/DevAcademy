@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { MenuIcon } from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -20,9 +20,13 @@ import {
 } from "@/components/ui/sheet"
 import SearchBar from "../Searchbar"
 import ROUTES from "@/constants/route"
+import { auth, signOut } from "@/auth"
+import Image from "next/image"
 
-const NavbarHome = () => {
-  const user = ""
+const NavbarHome = async () => {
+  const session = await auth();
+  const user = session?.user;
+  // console.log(user);
 
   return (
     <header className="bg-background border-b border-border">
@@ -116,10 +120,11 @@ const NavbarHome = () => {
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Avatar>
-                    <AvatarImage src="https://github.com/shadcn.png" />
-                    <AvatarFallback>CN</AvatarFallback>
-                  </Avatar>
+                  {/* <Avatar> */}
+                    {/* <AvatarImage src={user?.image || "https://github.com/shadcn.png"} /> */}
+                    <Image src={user?.image ?? "https://github.com/shadcn.png"} width={32} height={32} className="rounded-full" alt={user?.name ?? "User"} />
+                    {/* <AvatarFallback>{user?.name?.charAt(0)}</AvatarFallback> */}
+                  {/* </Avatar> */}
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56" align="start">
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -139,7 +144,14 @@ const NavbarHome = () => {
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    Log out
+                    <form
+                      action={async () => {
+                        "use server"
+                        await signOut()
+                      }}
+                    >
+                      <button type="submit">Log Out</button>
+                    </form>
                     <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
