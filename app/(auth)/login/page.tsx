@@ -15,7 +15,7 @@ import ROUTES from "@/constants/route"
 import Link from "next/link"
 const LoginPage = () => {
     return (
-        <main className="max-w-7xl mx-auto flex items-center justify-center min-h-[calc(100vh-80px)]">
+        <main className="container mx-auto flex items-center justify-center min-h-[calc(100vh-80px)]">
             <Card className="w-full max-w-sm">
                 <CardHeader>
                     <CardTitle>Login to your account</CardTitle>

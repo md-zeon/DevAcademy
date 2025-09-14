@@ -16,7 +16,7 @@ import Link from "next/link"
 
 const SignUpPage = () => {
     return (
-        <main className="max-w-7xl mx-auto flex items-center justify-center min-h-[calc(100vh-80px)]">
+        <main className="container mx-auto flex items-center justify-center min-h-[calc(100vh-80px)]">
             <Card className="w-full max-w-sm">
                 <CardHeader>
                     <CardTitle>Sign Up to your account</CardTitle>

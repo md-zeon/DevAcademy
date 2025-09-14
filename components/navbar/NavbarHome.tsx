@@ -29,8 +29,8 @@ const NavbarHome = async () => {
   // console.log(user);
 
   return (
-    <header className="bg-background border-b border-border">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="bg-background absolute top-0 z-50 left-0 right-0">
+      <nav className="container mx-auto px-4 sm:px-6 lg:px-8 rounded-full border border-border">
         <div className="flex justify-between h-16 items-center">
           {/* Logo + Navigation */}
           <div className="flex items-center space-x-4">
@@ -51,7 +51,7 @@ const NavbarHome = async () => {
                     <NavigationMenuLink asChild>
                       <Link
                         href={ROUTES.COURSES}
-                        className="block px-3 py-2 rounded"
+                        className="block w-28 px-3 py-2 rounded"
                       >
                         All Courses
                       </Link>
@@ -59,7 +59,7 @@ const NavbarHome = async () => {
                     <NavigationMenuLink asChild>
                       <Link
                         href={ROUTES.PATHS}
-                        className="block px-3 py-2 rounded"
+                        className="block w-28 px-3 py-2 rounded"
                       >
                         Career Paths
                       </Link>
