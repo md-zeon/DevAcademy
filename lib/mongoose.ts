@@ -12,13 +12,14 @@ interface MongooseCache {
 }
 
 declare global {
-	var mongoose: MongooseCache;
+	// eslint-disable-next-line no-var
+	var mongoose: MongooseCache | undefined;
 }
 
-let cached = global.mongoose;
+let cached = (globalThis as any).mongoose;
 
 if (!cached) {
-	cached = global.mongoose = { conn: null, promise: null };
+	cached = (globalThis as any).mongoose = { conn: null, promise: null };
 }
 
 const dbConnect = async (): Promise<Mongoose> => {
@@ -30,13 +31,17 @@ const dbConnect = async (): Promise<Mongoose> => {
 		cached.promise = mongoose
 			.connect(MONGODB_URI, {
 				dbName: "devacademy",
+				serverSelectionTimeoutMS: 7000,
 			})
 			.then((result) => {
-				console.log("Connected to mongodb");
+				if (process.env.NODE_ENV !== "production") {
+					console.log("Connected to MongoDB");
+				}
 				return result;
 			})
 			.catch((error) => {
-				console.log("Error connecting to mongodb", error);
+				console.error("Error connecting to MongoDB:", error);
+				cached.promise = null;
 				throw error;
 			});
 	}
